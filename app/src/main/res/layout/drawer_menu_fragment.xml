@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.example.papp.ui.DMF">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/optionsView"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/exitButton"
+        style="@style/ButtonStyle"
+        android:layout_marginLeft="@dimen/offset_sm"
+        android:layout_marginRight="@dimen/offset_sm"
+        android:layout_marginTop="@dimen/offset_sm"
+        android:layout_marginBottom="@dimen/offset_smm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/drawer_exit_button_text"/>
+</LinearLayout>

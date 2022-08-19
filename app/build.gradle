@@ -1,0 +1,126 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+}
+
+static def generateVersionCode() {
+    def result = "git rev-list HEAD --count".execute().text.trim() //unix
+    if(result.empty) result = "PowerShell -Command git rev-list HEAD --count".execute().text.trim() //windows
+    if(result.empty) result = "0"
+    return result.toInteger()
+}
+
+static def getBranchName() {
+    def result = "git rev-parse --abbrev-ref HEAD".execute().text.trim() //unix
+    if(result.empty) result = "PowerShell -Command git rev-parse --abbrev-ref HEAD".execute().text.trim() //windows
+    if(result.empty) result = "0"
+    return "br=${result.replace("/","-")}"
+}
+
+static def getCommitHash() {
+    def result = "git rev-parse HEAD".execute().text.trim() //unix
+    if(result.empty) result = "PowerShell -Command git rev-parse HEAD".execute().text.trim() //windows
+    if(result.empty) result = "0"
+    return "cm=${result.substring(0,11)}"
+}
+
+def majorVersion = 0
+def minorVersion = 3
+def patchVersion = 5
+def buildVersion = generateVersionCode()
+
+android {
+    compileSdkVersion 32
+    buildToolsVersion "30.0.3"
+    ndkVersion "21.4.7075529"
+
+    defaultConfig {
+        applicationId "com.example.papp"
+        minSdkVersion 16
+        targetSdkVersion 31
+        versionCode generateVersionCode()
+        versionName "${majorVersion}.${minorVersion}.${patchVersion}.${buildVersion}"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        resValue("string", "build_version", versionName)
+        resValue("string", "build_date", "${(new Date()).getTime().toString()}")
+        resValue("string", "build_hash", getCommitHash())
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        signature {
+            def keystorePropertiesFile = rootProject.file("keystore.properties")
+            def keystoreProperties = new Properties()
+            keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            v1SigningEnabled(true)
+            v2SigningEnabled(true)
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    buildTypes {
+        applicationVariants.all { variant ->
+            variant.outputs.all {
+                outputFileName = "${variant.name}-${variant.versionName}-${getBranchName()}-${getCommitHash()}.apk"
+            }
+        }
+
+        releaseDisableLicense {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.signature
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "Boolean", "DISABLE_LICENSE", "false"
+            signingConfig signingConfigs.signature
+        }
+
+        debug {
+            minifyEnabled false
+            debuggable true
+            signingConfig signingConfigs.signature
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['.jar', '.so'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation "androidx.fragment:fragment-ktx:1.2.2"
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+    implementation 'org.slf4j:slf4j-api:1.7.25'
+    implementation 'com.github.tony19:logback-android:1.3.0-3'
+    implementation files('libs/xmlparser.jar')
+    implementation files('libs/posprinterconnectandsendsdk.jar')
+}

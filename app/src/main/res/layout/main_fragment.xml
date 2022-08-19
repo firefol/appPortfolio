@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.papp.ui.MA">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/spinconnect"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="3dp"
+                android:background="@android:drawable/edit_text"
+                android:entries="@array/connectionPort"
+                android:padding="0dp"
+                android:spinnerMode="dropdown"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/selectbutton"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="95dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2"
+                android:text="@string/selectDevice"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/selected_device"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="2"
+                android:duplicateParentState="false"
+                android:ems="10"
+                android:enabled="false"
+                android:gravity="center_vertical"
+                android:hint="@string/selectedDevice"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/connbutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/offset_sm"
+            android:layout_marginRight="@dimen/offset_sm"
+            android:layout_marginTop="@dimen/offset_sm"
+            android:layout_marginBottom="@dimen/offset_smm"
+            android:text="@string/connect"
+            android:textColor="@color/colorLightYellow"/>
+
+        <Button
+            android:id="@+id/discbutton"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/offset_sm"
+            android:layout_marginRight="@dimen/offset_sm"
+            android:layout_marginTop="@dimen/offset_sm"
+            android:layout_marginBottom="@dimen/offset_smm"
+            android:textColor="@color/colorLightYellow"
+            android:text="@string/disconnect" />
+
+        <Button
+            android:id="@+id/buttonXP323B"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/offset_sm"
+            android:layout_marginRight="@dimen/offset_sm"
+            android:layout_marginTop="@dimen/offset_sm"
+            android:layout_marginBottom="@dimen/offset_smm"
+            android:textColor="@color/colorLightYellow"
+            android:text="@string/device_work" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/broadcast_send"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/offset_sm"
+        android:layout_marginRight="@dimen/offset_sm"
+        android:layout_marginTop="@dimen/offset_sm"
+        android:layout_marginBottom="@dimen/offset_smm"
+        android:text="@string/send_data_broadcast"
+        app:layout_anchor="@+id/linearLayout"
+        android:textColor="@color/colorLightYellow"
+        app:layout_anchorGravity="bottom|center" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name"> Application</string>
+    <string name="about_app"> О программе</string>
+    <string name="Settings"> Настройки</string>
+    <string name="drawer_exit_button_text">Выход</string>
+    <string name="selectedDevice">Выбранное устройство</string>
+    <string name="selectDevice">Выбор устройства</string>
+    <string name="connect">Подключиться</string>
+    <string name="disconnect">отключиться</string>
+    <string name="device_work">Работа с устройством</string>
+    <string-array name="barcodeNames">
+        <item>128</item>
+        <item>93</item>
+        <item>EAN8</item>
+        <item>EAN13</item>
+        <item>EAN14</item>
+        <item>ITF14</item>
+    </string-array>
+    <string-array name="connectionPort">
+        <item>Bluetooth</item>
+        <item>USB</item>
+    </string-array>
+    <string name="print">Печать</string>
+    <string name="typebarcode">Тип штрихкода:</string>
+    <string name="barcodevalue">Значение штрихкода:</string>
+    <string name="none_ble_device">устройство не найдено</string>
+    <string name="paired_device">связанное устройство</string>
+    <string name="search_bt">поиск</string>
+    <string name="new_device">новое устройство</string>
+    <string name="con_success">устройство подключено</string>
+    <string name="con_has_discon">Соединение прервано</string>
+    <string name="con_failed">Соединение не удалось</string>
+    <string name="toast_discon_success">Устройство отключено</string>
+    <string name="toast_discon_failed">Устройство отключено</string>
+    <string name="toast_present_con">Нет связи</string>
+    <string name="usb_pre_connected">present connected Usb dev:</string>
+    <string name="number_of_usb_devices_0">Количество USB-устройств ：0</string>
+    <string name="print_template">печать шаблона</string>
+    <string name="bleselect">Пожалуйста выберете BT устройство</string>
+    <string name="usbselect">Пожалуйста выберете USB устройство</string>
+    <string name="send_data_broadcast">Send data Broadcast</string>
+    <string name="main_title_text">Device.App</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="selection_text">Выбор подключения</string>
+    <string name="printer_settings">Настройки принтера</string>
+    <string name="template_xml">Печать xml</string>
+    <string name="device_work_toolbar_name">Работа с устройством</string>
+    <string name="templates_list">укажите шаблон:</string>
+
+</resources>

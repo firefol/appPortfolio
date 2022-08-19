@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="settingsButton" type="id"/>
+    <item name="typeSettingsButton" type="id" />
+    <item name="infoVersion" type="id"/>
+    <item name="infoLogsSize" type="id"/>
+    <item name="infoCleanLogs" type="id"/>
+    <item name="infoFreeSize" type="id"/>
+    <item name="service" type="id"/>
+    <item name="diagnosticsOverallSize" type="id" />
+    <item name="diagnosticsFreeSize" type="id" />
+    <item name="warningView" type="id"/>
+    <item name="successView" type="id"/>
+    <item name="errorView" type="id"/>
+    <item name="diagnosticsExportDb" type="id"/>
+    <item name="descriptionView" type="id" />
+    <item name="seekBarView" type="id" />
+    <item name="settingsDataLoggingSize" type="id" />
+    <item name="settingPrinterButton" type="id" />
+    <item name="settingsConectionType" type="id" />
+    <item name="selectedTemplateVariant" type="id" />
+    <item name="selectTemplateVariant" type="id" />
+</resources>

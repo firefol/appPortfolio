@@ -1,0 +1,77 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <attr name="colorBody" format="color"/>
+    <attr name="dialogTitleColor" format="color"/>
+    <attr name="diagnosticsSuccessDrawable" format="reference"/>
+    <attr name="diagnosticsWarningDrawable" format="reference"/>
+    <attr name="diagnosticsFailureDrawable" format="reference"/>
+
+    <style name="Theme.Printerservice" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/blue_700</item>
+        <item name="colorPrimaryVariant">@color/purple_500</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorBody">@color/colorDark</item>
+        <item name="dialogTitleColor">@color/colorSecondary</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="diagnosticsSuccessDrawable">@drawable/dot_green</item>
+        <item name="diagnosticsWarningDrawable">@drawable/dot_yellow</item>
+        <item name="diagnosticsFailureDrawable">@drawable/dot_red</item>
+        <!-- Status bar color. -->
+        <item name="android:actionBarStyle">@style/Theme.Printerservice.ActionBarStyle</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.Printerservice.ActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:titleTextStyle">@style/Theme.Printerservice.ActionBar.TitleTextStyle</item>
+    </style>
+
+    <style name="Theme.Printerservice.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/colorLightYellow</item>
+    </style>
+
+    <style name="ButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">@color/colorLightYellow</item>
+        <item name="android:textSize">@dimen/text_size_lg</item>
+        <item name="android:background">@drawable/button_background</item>
+    </style>
+
+    <style name="TextTitleStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?attr/colorBody</item>
+        <item name="android:textSize">@dimen/text_size_lg</item>
+    </style>
+
+    <style name="RecyclerViewStyle">
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:fadeScrollbars">false</item>
+    </style>
+
+    <style name="EditBox">
+        <item name="android:background">@color/white</item>
+        <item name="borderColor">@color/edit_box_border_color</item>
+        <item name="hintColor">@color/colorDarkGray</item>
+        <item name="textSize">@dimen/text_size_md</item>
+        <item name="textColor">@color/edit_box_text_color</item>
+    </style>
+
+    <style name="TextValueStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">?attr/colorBody</item>
+        <item name="android:textSize">@dimen/text_size_md</item>
+    </style>
+
+    <style name="DialogTitleStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?attr/dialogTitleColor</item>
+        <item name="android:textSize">@dimen/text_size_lg</item>
+    </style>
+
+    <style name="TextHintStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">?attr/colorBody</item>
+        <item name="android:textSize">@dimen/text_size_sm</item>
+    </style>
+</resources>
